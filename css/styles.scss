@@ -1,0 +1,103 @@
+//saving the file name as .less
+//defining few variables
+$lt-grey: #ddd;
+$background-dark: #512DA8;
+$background-light: #9575CD;
+$background-pale: #D1C4E9;
+$background-yellow: yellow;
+
+//Height variables
+$carousel-item-height: 300px;
+
+//Creating some mixins
+//mixins means passing parameters with values
+@mixin zero-margin($pad-up-dn, $pad-left-right) {
+    margin: 0px auto;
+    padding: $pad-up-dn $pad-left-right;
+}
+
+@mixin modal-header-color ($bg-header-color){
+    background-color: $bg-header-color;
+}
+
+@mixin modal-body-color ($bg-body-color){
+    background-color: $bg-body-color;
+}
+
+.row-header {
+    $include: zero-margin();
+}
+
+.row-content {
+    $include: zero-margin();
+    border-bottom: 1px ridge;
+    min-height: 400px;
+}
+
+.footer {
+    background-color: $background-pale;
+    $include: zero-margin(20px, 0px);
+}
+
+.jumbotron {
+    $include: zero-margin(70px, 30px);
+    background: $background-light;
+    color: floralwhite;
+}
+
+address {
+    font-size: 80%;
+    margin: 0px;
+    color: #0f0f0f;
+}
+
+body {
+    padding: 0px 0px 0px 0px;
+    z-index: 0;
+}
+
+.navbar-dark {
+    background-color: $background-dark;
+}
+
+.tab-content {
+    border-left: 1px solid $lt-grey;
+    border-right: 1px solid $lt-grey;
+    border-bottom: 1px solid $lt-grey;
+    padding: 10px;
+}
+
+.carousel {
+    background: $background-dark;
+
+    .carousel-item {
+        height: $carousel-item-height;
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-height: 300px;
+        }
+    }
+}
+
+#carouselButton {
+    right: 0px;
+    position: absolute;
+    bottom: 0px;
+}
+
+.modal-header{
+    @include modal-header-color(#512DA8);
+    .modal-title{
+        color:floralwhite;
+    }
+    .close{
+        color:floralwhite;
+    }
+}
+
+.modal-body {
+    @include modal-body-color(#D1C4E9);
+}
